@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    tty: true
+    volumes:
+      - ..:/workspace:cached
+    environment:
+      - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
+      - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+    networks:
+      - spotify-network
+    # Allows forwarding of ports for both backend and frontend
+    ports:
+      - "8000:8000"  # FastAPI backend
+      - "3000:3000"  # React frontend
+
+networks:
+  spotify-network:
+    driver: bridge
