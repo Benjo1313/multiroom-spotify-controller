@@ -2,21 +2,29 @@ version: '3.8'
 
 services:
   app:
-    build: 
+    build:
       context: ..
       dockerfile: .devcontainer/Dockerfile
     tty: true
+    command: /usr/local/bin/run-dev.sh
     volumes:
       - ..:/workspace:cached
+      # Add named volume for node_modules to avoid performance issues
+      - node_modules:/workspace/frontend/node_modules
+      - poetry_cache:/root/.cache/pypoetry
     environment:
       - SPOTIFY_CLIENT_ID=${SPOTIFY_CLIENT_ID}
       - SPOTIFY_CLIENT_SECRET=${SPOTIFY_CLIENT_SECRET}
+      - CHOKIDAR_USEPOLLING=true  # Helps with file watching on Windows
     networks:
       - spotify-network
-    # Allows forwarding of ports for both backend and frontend
     ports:
       - "8000:8000"  # FastAPI backend
       - "3000:3000"  # React frontend
+
+volumes:
+  node_modules:
+  poetry_cache:
 
 networks:
   spotify-network:

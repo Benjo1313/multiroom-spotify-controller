@@ -11,15 +11,12 @@ A system for controlling Spotify playback and managing Snap zone selection from 
 
 ### Prerequisites
 - Docker and Docker Compose
-- Visual Studio Code
-- VS Code Remote - Containers extension
+- VS Code with Remote Containers extension
 
-### Getting Started
+### Quick Start
 1. Clone this repository
-2. Open the project in VS Code
-3. When prompted to "Reopen in Container", click "Reopen in Container"
-   (or use the Command Palette: "Remote-Containers: Reopen in Container")
-4. VS Code will build the dev container and open the project inside it
+2. Run the setup script: `bash setup-project.sh`
+3. Create a `.env` file with your Spotify credentials:
 
 ### Development Workflow
 - Backend runs on http://localhost:8000

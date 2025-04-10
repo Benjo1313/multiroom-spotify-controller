@@ -1,20 +1,19 @@
-[project]
-name = "multiroom-spotify-controller"
+[tool.poetry]
+name = "spotify-snapcast-control"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "Your Name",email = "you@example.com"}
-]
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "fastapi (>=0.115.12,<0.116.0)",
-    "uvicorn (>=0.34.0,<0.35.0)",
-    "python-dotenv (>=1.1.0,<2.0.0)",
-    "httpx (>=0.28.1,<0.29.0)"
-]
+description = "Backend API for Spotify and Snapcast zone control"
+authors = ["Your Name <your.email@example.com>"]
 
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.97.0"
+uvicorn = "^0.22.0"
+httpx = "^0.24.1"
+python-dotenv = "^1.1.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

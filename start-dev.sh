@@ -6,4 +6,4 @@ chmod +x .devcontainer/post-create.sh
 
 # Navigate to backend directory and start services
 cd /workspace
-bash .devcontainer/run-dev.sh
+bash /usr/local/bin/run-dev.sh
